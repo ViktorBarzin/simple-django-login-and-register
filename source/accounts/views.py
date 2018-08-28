@@ -53,7 +53,6 @@ class LogInView(GuestOnlyView, FormView):
         return SignInViaUsernameForm
 
     @method_decorator(sensitive_post_parameters('password'))
-    @method_decorator(csrf_protect)
     @method_decorator(never_cache)
     def dispatch(self, request, *args, **kwargs):
         # Sets a test cookie to make sure the user has cookies enabled
